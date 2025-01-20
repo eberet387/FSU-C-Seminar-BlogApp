@@ -1,0 +1,39 @@
+﻿@page
+@model MyApp.Namespace.BlogModel
+@using MyApp.Namespace
+@inject ApplicationDbContext _context
+
+@{
+    string title = "Anzahl an Blogs";
+    ViewData["Title"] = $"BlogApp - {title}";
+}
+
+<div class="row">
+    <h2>@title</h2>
+    <p>
+        Es gibt @_context.BlogPosts.Count() Blog-Artikel in der Datenbank.
+    </p>
+</div>
+<hr />
+
+@{  
+    <h2>Blog-Post Erstellen:</h2>
+    <form method="post">
+        <input type="text" name="Title" placeholder="Titel" required>
+        <textarea name="Content" placeholder="Dein Blog-Post" required></textarea>
+        <button type="submit">Veröffentlichen</button>
+    </form>
+    <hr />
+
+    <h2>Blog-Artikel</h2>
+    @foreach (var post in Model.Posts)
+    {
+        <div>
+            <h3>@post.Title</h3>
+            <p>@post.Content</p>
+            <small>@post.CreatedAt.ToString("dd.MM.yyyy")</small>
+        </div>
+        <hr />
+    }
+}
+
