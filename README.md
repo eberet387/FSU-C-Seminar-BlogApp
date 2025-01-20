@@ -1,4 +1,4 @@
-# FSU-C-Seminar-BlogApp
+# FSU-C#-Seminar-BlogApp
 A repository for my Blog App made using ASP.NET Core Razor Pages for the FSU C# Seminar.
 
 To install the DOTNET SDK, you can use:
